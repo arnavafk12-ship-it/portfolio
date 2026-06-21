@@ -192,33 +192,42 @@ const App = () => {
         <div ref={containerRef} className="portfolio-container">
 
           {/* HEADER */}
-          <header ref={headerRef} className="header-container" style={{ opacity: 0 }}>
-            <div className="top">
-              <div className="profile-img"></div>
-            </div>
+       <header ref={headerRef} className="header-container" style={{ opacity: 0 }}>
+  <div className="top">
+    <div className="profile-img"></div>
+  </div>
 
-            <div className="down">
-              <div className="left">
-                <h2 ref={nameRef}> </h2>
-                <h3 className="header-info-sub" style={{ opacity: 0 }}>Frontend Developer</h3>
-                <h5 className="header-info-sub" style={{ opacity: 0 }}>Based in Khandwa, M.P</h5>
-              </div>
-              <div className="right">
-                <div className="social-group header-info-sub" style={{ opacity: 0 }}>
-                  <button className="social-link" aria-label="Social Link 1"></button>
-                  <button className="social-link" aria-label="Social Link 2"></button>
-                  <button className="social-link" aria-label="Social Link 3"></button>
-                </div>
-                <button
-                  className="email header-info-sub"
-                  style={{ opacity: 0 }}
-                  onClick={() => contactRef.current?.scrollIntoView({ behavior: 'smooth' })}
-                >
-                  Get in touch
-                </button>
-              </div>
-            </div>
-          </header>
+  <div className="down">
+    <div className="left">
+      <h2 ref={nameRef}> </h2>
+      <h3 className="header-info-sub" style={{ opacity: 0 }}>Frontend Developer</h3>
+      <h5 className="header-info-sub" style={{ opacity: 0 }}>Based in Khandwa, M.P</h5>
+    </div>
+    <div className="right">
+      <div className="social-group header-info-sub" style={{ opacity: 0 }}>
+        {/* GitHub Link */}
+        <a href="https://github.com" target="_blank" rel="noreferrer" className="social-link" aria-label="GitHub">
+          <i className="bi bi-github"></i>
+        </a>
+        {/* Quora Link */}
+        <a href="https://quora.com" target="_blank" rel="noreferrer" className="social-link" aria-label="Quora">
+          <i className="bi bi-quora"></i>
+        </a>
+        {/* Discord Link */}
+        <a href="https://discord.com" target="_blank" rel="noreferrer" className="social-link" aria-label="Discord">
+          <i className="bi bi-discord"></i>
+        </a>
+      </div>
+      <button
+        className="email header-info-sub"
+        style={{ opacity: 0 }}
+        onClick={() => contactRef.current?.scrollIntoView({ behavior: 'smooth' })}
+      >
+        Get in touch
+      </button>
+    </div>
+  </div>
+</header>
 
           {/* ABOUT */}
           <section ref={aboutRef} className="about" style={{ opacity: 0 }}>
