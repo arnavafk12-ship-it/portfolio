@@ -137,7 +137,8 @@ center {
 
 .social-group {
   display: flex;
-  gap: 10px;
+  gap: 12px;
+  align-items: center;
 }
 
 .social-link {
@@ -146,13 +147,41 @@ center {
   border-radius: 50%;
   border: 1.5px solid rgba(209, 209, 209, 0.8);
   background: transparent;
+  color: #333;
+  font-size: 1.25rem;
+  
+  /* Absolute centering alignment tools */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  text-decoration: none;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* Forces the inner CDN icon element to stay centered and remove line-height clipping */
+.social-link i {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  width: auto;
+  height: auto;
+}
+
 .social-link:hover {
-  background-color: #f5f5f7;
+  background-color: #111;
+  color: #fff;
+  border-color: #111;
   transform: scale(1.05);
+}
+
+/* Keeps the right side controls nicely leveled */
+.right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 .email {
