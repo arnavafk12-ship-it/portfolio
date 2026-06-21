@@ -673,3 +673,99 @@ center {
 .gate-bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
+/* ==========================================
+   FEATURED PROJECTS SECTION (Optimized Layout)
+   ========================================== */
+.projects-section {
+  width: 100%;
+  max-width: 1400px;
+  padding: 40px;
+  text-align: left;
+}
+
+.projects-section h3 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 1.8rem;
+  color: #111;
+  margin-bottom: 30px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Split screen evenly into two clean layout slots */
+  gap: 24px;
+  width: 100%;
+}
+
+.project-card {
+  background: #fdfdfd;
+  border: 1.5px solid rgba(209, 209, 209, 0.5);
+  border-radius: 14px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+  min-height: 280px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(17, 17, 17, 0.2);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
+}
+
+.project-content h4 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 12px;
+}
+
+.project-content p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.project-tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.project-tech-tags span {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #555;
+  background: #f1f1f3;
+  padding: 6px 12px;
+  border-radius: 6px;
+}
+
+.project-demo-btn {
+  align-self: flex-start;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #111;
+  border-bottom: 1.5px solid #111;
+  padding-bottom: 2px;
+  transition: opacity 0.2s ease;
+}
+
+.project-demo-btn:hover {
+  opacity: 0.65;
+}
+
+@media screen and (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr; /* Switch to single columns for clean responsive sizing on phones */
+  }
+}
