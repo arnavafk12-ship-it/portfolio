@@ -210,10 +210,10 @@ const App = () => {
     </div>
     <div className="right">
       <div className="social-group header-info-sub" style={{ opacity: 0 }}>
-        <a href="https://github.com" target="_blank" rel="noreferrer" className="social-link" aria-label="GitHub">
+        <a href="https://github.com/arnav-afk12-ship-it" target="_blank" rel="noreferrer" className="social-link" aria-label="GitHub">
           <i className="bi bi-github"></i>
         </a>
-        <a href="https://quora.com" target="_blank" rel="noreferrer" className="social-link" aria-label="Quora">
+        <a href="https://www.quora.com/profile/Query-n-Callback" target="_blank" rel="noreferrer" className="social-link" aria-label="Quora">
           <i className="bi bi-quora"></i>
         </a>
         <a href="https://discord.com" target="_blank" rel="noreferrer" className="social-link" aria-label="Discord">
