@@ -255,7 +255,6 @@ const App = () => {
             </div>
           </section>
 
-          {/* PROJECTS */}
 {/* PROJECTS */}
 <section ref={projectsRef} className="projects-section" style={{ opacity: 0 }}>
   <h3>Featured Projects</h3>
@@ -264,11 +263,7 @@ const App = () => {
       <div key={project.id} className="project-card">
         <div className="project-content">
           <h4>{project.title}</h4>
-          <div className="project-tech-tags">
-            {project.tech.map((t, idx) => (
-              <span key={idx}>{t}</span>
-            ))}
-          </div>
+          <p>{project.desc}</p>
         </div>
         <a 
           href={project.url} 
