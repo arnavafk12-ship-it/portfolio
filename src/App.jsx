@@ -33,46 +33,23 @@ const App = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState("");
 
-  const initialProjects = [
-    { id: 1, title: "E-Commerce App", desc: "Built with React and Redux Toolkit.", tech: ["React", "Redux", "Tailwind"] },
-    { id: 2, title: "3D Portfolio Website", desc: "Interactive presentation layout.", tech: ["GSAP", "Framer Motion", "Lenis"] },
-    { id: 3, title: "Dashboard Interface", desc: "Data intensive admin panel layout.", tech: ["MUI", "React", "Charts"] },
-    { id: 4, title: "SaaS Landing Page", desc: "High-performance smooth scrolling landing asset.", tech: ["HTML5", "CSS3", "Lenis"] },
-    { id: 5, title: "Task Manager Pro", desc: "State persistent workflow utility.", tech: ["JavaScript", "Bootstrap", "Git"] },
-    { id: 6, title: "Weather Forecast Engine", desc: "Dynamic API consumption UI.", tech: ["React", "Tailwind", "React Icons"] },
-    { id: 7, title: "Creative Agency Showcase", desc: "Immersive layout packed with micro-interactions.", tech: ["GSAP", "Framer Motion", "CSS3"] }
+  // Cleaned up and added the explicit project entries with their demo URLs
+  const featuredProjects = [
+    { 
+      id: 1, 
+      title: "FXLive", 
+      desc: "An immersive real-time platform packed with micro-interactions and high-fidelity interfaces.", 
+      tech: ["React", "GSAP", "Tailwind", "Lenis"],
+      url: "https://fxlive-git-main-arnav-singhs-code.vercel.app"
+    },
+    { 
+      id: 2, 
+      title: "Timer-buddy", 
+      desc: "A sleek state-persistent workflow utility and productive countdown engine companion.", 
+      tech: ["React", "JavaScript", "CSS3", "Framer Motion"],
+      url: "https://timer-buddy-59opus5ax-arnav-singhs-code.vercel.app/"
+    }
   ];
-
-  const layoutPatterns = [
-    [
-      { gridColumn: "span 2", gridRow: "span 2" },
-      { gridColumn: "span 2", gridRow: "span 1" },
-      { gridColumn: "span 1", gridRow: "span 1" },
-      { gridColumn: "span 1", gridRow: "span 1" },
-      { gridColumn: "span 2", gridRow: "span 1" },
-      { gridColumn: "span 1", gridRow: "span 1" },
-      { gridColumn: "span 1", gridRow: "span 1" }
-    ],
-    [
-      { gridColumn: "span 1", gridRow: "span 1" },
-      { gridColumn: "span 2", gridRow: "span 2" },
-      { gridColumn: "span 1", gridRow: "span 1" },
-      { gridColumn: "span 1", gridRow: "span 1" },
-      { gridColumn: "span 1", gridRow: "span 1" },
-      { gridColumn: "span 2", gridRow: "span 1" },
-      { gridColumn: "span 1", gridRow: "span 1" }
-    ]
-  ];
-
-  const [randomizedProjects] = useState(() => {
-    const randomPattern = layoutPatterns[Math.floor(Math.random() * layoutPatterns.length)];
-    return [...initialProjects]
-      .sort(() => Math.random() - 0.5)
-      .map((project, index) => ({
-        ...project,
-        gridStyles: randomPattern[index] || { gridColumn: "span 1", gridRow: "span 1" }
-      }));
-  });
 
   useEffect(() => {
     emailjs.init("TSgq3gV5d8kvX_LE3");
@@ -93,7 +70,6 @@ const App = () => {
     const counterValue = { val: 0 };
     const masterTimeline = gsap.timeline();
 
-    // 1. Animate counter text from 0 to 100
     masterTimeline.to(counterValue, {
       val: 100,
       duration: 2.5,
@@ -105,14 +81,12 @@ const App = () => {
       }
     });
 
-    // 2. Fade out the counter text once it finishes hitting 100%
     masterTimeline.to(counterRef.current, {
       opacity: 0,
       duration: 0.4,
       ease: "power2.in"
     });
 
-    // 3. Open the gates! Top goes up (-100%), Bottom goes down (100%)
     masterTimeline.to(topGateRef.current, {
       yPercent: -100,
       duration: 1.2,
@@ -123,12 +97,10 @@ const App = () => {
       yPercent: 100,
       duration: 1.2,
       ease: "power4.inOut"
-    }, "<"); // "<" syncs this animation with the top gate step exactly
+    }, "<");
 
-    // 4. Fully hide the parent wrapper container when finished to permit clicks
     masterTimeline.set(loaderOverlayRef.current, { display: "none" });
 
-    // 5. Chain the existing entrance portfolio animations right after gates clear
     masterTimeline.fromTo(headerRef.current,
       { opacity: 0, y: 30 },
       { opacity: 1, y: 0, duration: 0.8, ease: "power4.out" }
@@ -278,12 +250,8 @@ const App = () => {
           <section ref={projectsRef} className="projects-section" style={{ opacity: 0 }}>
             <h3>Featured Projects</h3>
             <div className="projects-grid">
-              {randomizedProjects.map((project) => (
-                <div
-                  key={project.id}
-                  className="project-card"
-                  style={project.gridStyles}
-                >
+              {featuredProjects.map((project) => (
+                <div key={project.id} className="project-card">
                   <div className="project-content">
                     <h4>{project.title}</h4>
                     <p>{project.desc}</p>
@@ -293,6 +261,15 @@ const App = () => {
                       ))}
                     </div>
                   </div>
+                  {/* Clean demo action button */}
+                  <a 
+                    href={project.url} 
+                    target="_blank" 
+                    rel="noreferrer" 
+                    className="project-demo-btn"
+                  >
+                    View Live Demo ↗
+                  </a>
                 </div>
               ))}
             </div>
