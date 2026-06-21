@@ -190,30 +190,32 @@ const App = () => {
       {/* PORTFOLIO CONTENT */}
       <center>
         <div ref={containerRef} className="portfolio-container">
-
-          {/* HEADER */}
-       <header ref={headerRef} className="header-container" style={{ opacity: 0 }}>
-  <div className="top">
-    <div className="profile-img"></div>
-  </div>
+<header ref={headerRef} className="header-container" style={{ opacity: 0 }}>
+  {/* The top banner now handles the web dev background image */}
+  <div className="top banner-bg"></div>
 
   <div className="down">
     <div className="left">
+      {/* Profile picture wrapped in a clean black circle container */}
+      <div className="profile-img-container">
+        <img 
+          src="https://api.dicebear.com/7.x/bottts/svg?seed=Arnav&backgroundColor=111111" 
+          alt="Avatar" 
+          className="profile-avatar"
+        />
+      </div>
       <h2 ref={nameRef}> </h2>
       <h3 className="header-info-sub" style={{ opacity: 0 }}>Frontend Developer</h3>
       <h5 className="header-info-sub" style={{ opacity: 0 }}>Based in Khandwa, M.P</h5>
     </div>
     <div className="right">
       <div className="social-group header-info-sub" style={{ opacity: 0 }}>
-        {/* GitHub Link */}
         <a href="https://github.com" target="_blank" rel="noreferrer" className="social-link" aria-label="GitHub">
           <i className="bi bi-github"></i>
         </a>
-        {/* Quora Link */}
         <a href="https://quora.com" target="_blank" rel="noreferrer" className="social-link" aria-label="Quora">
           <i className="bi bi-quora"></i>
         </a>
-        {/* Discord Link */}
         <a href="https://discord.com" target="_blank" rel="noreferrer" className="social-link" aria-label="Discord">
           <i className="bi bi-discord"></i>
         </a>
