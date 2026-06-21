@@ -256,33 +256,32 @@ const App = () => {
           </section>
 
           {/* PROJECTS */}
-          <section ref={projectsRef} className="projects-section" style={{ opacity: 0 }}>
-            <h3>Featured Projects</h3>
-            <div className="projects-grid">
-              {featuredProjects.map((project) => (
-                <div key={project.id} className="project-card">
-                  <div className="project-content">
-                    <h4>{project.title}</h4>
-                    <p>{project.desc}</p>
-                    <div className="project-tech-tags">
-                      {project.tech.map((t, idx) => (
-                        <span key={idx}>{t}</span>
-                      ))}
-                    </div>
-                  </div>
-                  {/* Clean demo action button */}
-                  <a 
-                    href={project.url} 
-                    target="_blank" 
-                    rel="noreferrer" 
-                    className="project-demo-btn"
-                  >
-                    View Live Demo ↗
-                  </a>
-                </div>
-              ))}
-            </div>
-          </section>
+{/* PROJECTS */}
+<section ref={projectsRef} className="projects-section" style={{ opacity: 0 }}>
+  <h3>Featured Projects</h3>
+  <div className="projects-grid">
+    {featuredProjects.map((project) => (
+      <div key={project.id} className="project-card">
+        <div className="project-content">
+          <h4>{project.title}</h4>
+          <div className="project-tech-tags">
+            {project.tech.map((t, idx) => (
+              <span key={idx}>{t}</span>
+            ))}
+          </div>
+        </div>
+        <a 
+          href={project.url} 
+          target="_blank" 
+          rel="noreferrer" 
+          className="project-demo-btn"
+        >
+          View Live Demo ↗
+        </a>
+      </div>
+    ))}
+  </div>
+</section>
 
           {/* CONTACT FORM */}
           <section ref={contactRef} className="contact-section" style={{ opacity: 0 }}>
